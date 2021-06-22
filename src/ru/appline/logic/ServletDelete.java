@@ -29,7 +29,7 @@ public class ServletDelete extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         int id = jObj.get("id").getAsInt();
-        if (id < 1 || id > model.getFromList().size()) {
+        if (!model.getFromList().containsKey(id)) {
             pw.print(gson.toJson(getJsonErrorMessage(ErrorText.INVALID_ID)));
 
         } else {
